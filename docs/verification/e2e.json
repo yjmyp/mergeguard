@@ -7,9 +7,10 @@
     "redis": "PONG",
     "llm": "deepseek-chat",
     "rules": 21,
-    "tests_passed": 63,
+    "tests_passed": 62,
     "tests_skipped": 1,
-    "frontend": "React 19 + Vite"
+    "frontend": "React 19 + Vite",
+    "tests_total": 63
   },
   "fixture_repo": "https://github.com/yjmyp/mergeguard-demo",
   "review_flow": [

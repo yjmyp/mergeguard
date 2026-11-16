@@ -100,7 +100,7 @@ graph LR
 - **模型**：DeepSeek OpenAI-compatible Chat Completions，JSON 结构化输出，分块审查、单块重试、部分失败降级
 - **集成**：GitHub REST API、Webhook HMAC-SHA256、Pull Request Review / Issue Comment、Check Run、Commit Status、SARIF 2.1.0
 - **可靠性**：MySQL 持久化任务队列（租约、过期恢复、指数退避、幂等键）
-- **测试**：JUnit 5、Mockito、MockMvc、AssertJ、H2 全上下文测试、JaCoCo，63 项通过（1 个评测用例默认跳过）
+- **测试**：JUnit 5、Mockito、MockMvc、AssertJ、H2 全上下文测试、JaCoCo，63 项测试中 62 通过、1 个评测用例默认跳过
 
 ## 快速开始
 
@@ -126,7 +126,7 @@ export MERGEGUARD_POLL_ENABLED=true  # 无公网回调时用轮询
 ### 3. 启动
 
 ```bash
-mvn -q test          # 63 passed, 1 skipped (离线评测默认跳过)
+mvn -q test          # 63 total: 62 passed, 1 skipped (离线评测默认跳过)
 mvn -q spring-boot:run
 
 # 另开终端构建前端（构建产物会由 Spring Boot 托管）
