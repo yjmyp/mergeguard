@@ -1,0 +1,76 @@
+server:
+  port: 8081
+  shutdown: graceful
+
+spring:
+  application:
+    name: mergeguard
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/offeragent?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8
+    username: ${MYSQL_USER:offeragent}
+    password: ${MYSQL_PASSWORD:offeragent123}
+    hikari:
+      maximum-pool-size: 8
+      connection-timeout: 3000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: ${DB_SCHEMA:offeragent}
+        jdbc:
+          time_zone: UTC
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      timeout: 2s
+      repositories:
+        enabled: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+mergeguard:
+  api-key: ${MERGEGUARD_API_KEY:dev-mergeguard-key}
+  webhook-secret: ${MERGEGUARD_WEBHOOK_SECRET:dev-webhook-secret}
+  github:
+    token: ${GITHUB_TOKEN:}
+    api-url: ${MERGEGUARD_GITHUB_API_URL:https://api.github.com}
+    timeout-seconds: 15
+  llm:
+    enabled: ${MERGEGUARD_LLM_ENABLED:true}
+    base-url: ${MERGEGUARD_LLM_BASE_URL:https://api.deepseek.com}
+    api-key: ${DEEPSEEK_API_KEY:}
+    model: ${MERGEGUARD_LLM_MODEL:deepseek-chat}
+    max-diff-chars: 14000
+    timeout-seconds: 60
+  poll:
+    enabled: ${MERGEGUARD_POLL_ENABLED:false}
+    interval-ms: 300000
+  review:
+    max-files: 60
+    max-findings: 40
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: mergeguard
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    dev.yujian.mergeguard: INFO

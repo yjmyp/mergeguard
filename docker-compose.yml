@@ -1,0 +1,46 @@
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: mergeguard
+      MYSQL_USER: mergeguard
+      MYSQL_PASSWORD: mergeguard123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot123"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/mergeguard?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8
+      MYSQL_USER: mergeguard
+      MYSQL_PASSWORD: mergeguard123
+      DB_SCHEMA: mergeguard
+      SPRING_DATA_REDIS_HOST: redis
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY}
+      MERGEGUARD_API_KEY: ${MERGEGUARD_API_KEY:-change-me}
+      MERGEGUARD_WEBHOOK_SECRET: ${MERGEGUARD_WEBHOOK_SECRET:-change-me}
+      MERGEGUARD_POLL_ENABLED: "true"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy

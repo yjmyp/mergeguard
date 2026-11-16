@@ -1,0 +1,7 @@
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.296 s -- in dev.yujian.mergeguard.analysis.LlmReviewerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in dev.yujian.mergeguard.analysis.RiskAggregatorTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in dev.yujian.mergeguard.analysis.RuleEngineTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s -- in dev.yujian.mergeguard.config.ApiKeyFilterTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in dev.yujian.mergeguard.diff.FileDiffTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in dev.yujian.mergeguard.service.HmacTest
+Total: 43 tests, 0 failures, 0 errors
