@@ -1,0 +1,865 @@
+{
+  "generatedAt" : "2026-11-16T15:24:59.176134900Z",
+  "cases" : 32,
+  "tokens" : 20276,
+  "modelLatencyMs" : 53529,
+  "elapsedMs" : 53601,
+  "ruleOnly" : {
+    "tp" : 18,
+    "fp" : 0,
+    "fn" : 8,
+    "precision" : 1.0,
+    "recall" : 0.6923076923076923,
+    "f1" : 0.8181818181818181,
+    "lineAccuracy" : 1.0,
+    "lineHits" : 17,
+    "lineCompared" : 17
+  },
+  "hybrid" : {
+    "tp" : 25,
+    "fp" : 1,
+    "fn" : 1,
+    "precision" : 0.9615384615384616,
+    "recall" : 0.9615384615384616,
+    "f1" : 0.9615384615384616,
+    "lineAccuracy" : 1.0,
+    "lineHits" : 24,
+    "lineCompared" : 24
+  },
+  "byCategory" : {
+    "all" : [ 25, 1, 1, 32 ]
+  },
+  "cases_detail" : [ {
+    "id" : "sql-drop",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 754,
+    "latencyMs" : 2969,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "DATA_LOSS|1|1.00|破坏性数据库变更" ]
+  }, {
+    "id" : "sql-truncate",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 609,
+    "latencyMs" : 1687,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "DATA_LOSS|1|1.00|破坏性数据库变更" ]
+  }, {
+    "id" : "sql-delete-all",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 599,
+    "latencyMs" : 1570,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "DATA_LOSS|1|1.00|DELETE 语句缺少 WHERE" ]
+  }, {
+    "id" : "aws-key",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 636,
+    "latencyMs" : 1894,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|1|1.00|疑似硬编码凭证" ]
+  }, {
+    "id" : "private-key",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 620,
+    "latencyMs" : 1127,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|1|1.00|疑似硬编码凭证" ]
+  }, {
+    "id" : "sql-injection",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 677,
+    "latencyMs" : 1742,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|2|1.00|SQL 字符串拼接可能注入" ]
+  }, {
+    "id" : "shell-injection",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 643,
+    "latencyMs" : 1269,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|2|1.00|动态执行代码" ]
+  }, {
+    "id" : "tls-disabled",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 625,
+    "latencyMs" : 1396,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|3|1.00|TLS 校验被关闭" ]
+  }, {
+    "id" : "eval-input",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 616,
+    "latencyMs" : 1846,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|1|0.98|直接 eval 用户输入导致任意代码执行" ]
+  }, {
+    "id" : "path-traversal",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 637,
+    "latencyMs" : 1801,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|2|0.95|未校验文件名导致路径穿越" ]
+  }, {
+    "id" : "unsafe-deserialize",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 832,
+    "latencyMs" : 2882,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|2|0.95|不可信数据直接反序列化导致 RCE" ]
+  }, {
+    "id" : "weak-hash",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 668,
+    "latencyMs" : 2023,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|2|0.98|口令使用无盐 MD5 哈希，存在严重安全风险" ]
+  }, {
+    "id" : "empty-catch",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 630,
+    "latencyMs" : 1361,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "RELIABILITY|3|1.00|异常被静默吞掉" ]
+  }, {
+    "id" : "broad-catch",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 651,
+    "latencyMs" : 1842,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "RELIABILITY|1|1.00|捕获范围过宽" ]
+  }, {
+    "id" : "resource-leak",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 626,
+    "latencyMs" : 1322,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "RELIABILITY|2|0.95|InputStream 未关闭导致文件描述符泄漏" ]
+  }, {
+    "id" : "disabled-test",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 746,
+    "latencyMs" : 2365,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "TESTING|1|1.00|测试被禁用或跳过" ]
+  }, {
+    "id" : "pr-target",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 659,
+    "latencyMs" : 2072,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "CI_SECURITY|1|1.00|使用 pull_request_target 且未隔离权限" ]
+  }, {
+    "id" : "write-all",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 655,
+    "latencyMs" : 1834,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "CI_SECURITY|1|1.00|工作流权限过宽" ]
+  }, {
+    "id" : "internal-url",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 609,
+    "latencyMs" : 1463,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "CONFIG|1|0.90|硬编码内网地址导致环境耦合" ]
+  }, {
+    "id" : "debug-print",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 655,
+    "latencyMs" : 1781,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "MAINTAINABILITY|2|1.00|调试输出残留" ]
+  }, {
+    "id" : "prompt-injection",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 500,
+    "latencyMs" : 814,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 1,
+    "details" : [ "SECURITY|1|1.00|疑似针对 AI 审查的提示注入" ]
+  }, {
+    "id" : "env-commit",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 1,
+    "hybridFindings" : 1,
+    "tokens" : 0,
+    "latencyMs" : 0,
+    "chunks" : 0,
+    "coverage" : 100,
+    "llmError" : "no added lines to review",
+    "neutralized" : 0,
+    "details" : [ "SECURITY|null|1.00|提交了环境变量文件" ]
+  }, {
+    "id" : "admin-authz",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 754,
+    "latencyMs" : 2190,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|1|0.95|管理接口缺少授权校验" ]
+  }, {
+    "id" : "race-create",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 0,
+      "fp" : 1,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 879,
+    "latencyMs" : 2853,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "CORRECTNESS|2|0.90|先查后插存在并发竞态" ]
+  }, {
+    "id" : "unbounded-query",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 645,
+    "latencyMs" : 1323,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "PERFORMANCE|1|0.85|无上限全表查询存在内存与性能风险" ]
+  }, {
+    "id" : "secret-in-log",
+    "kind" : "risk",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 1,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 1,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 1,
+      "lineCompared" : 1
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 1,
+    "tokens" : 624,
+    "latencyMs" : 1636,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ "SECURITY|2|0.98|日志打印明文口令导致凭据泄露" ]
+  }, {
+    "id" : "clean-null-check",
+    "kind" : "clean",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 0,
+    "tokens" : 516,
+    "latencyMs" : 742,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ ]
+  }, {
+    "id" : "clean-test-add",
+    "kind" : "clean",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 0,
+    "tokens" : 610,
+    "latencyMs" : 1241,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ ]
+  }, {
+    "id" : "clean-refactor",
+    "kind" : "clean",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 0,
+    "tokens" : 759,
+    "latencyMs" : 1913,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ ]
+  }, {
+    "id" : "clean-config",
+    "kind" : "clean",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 0,
+    "tokens" : 643,
+    "latencyMs" : 1697,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ ]
+  }, {
+    "id" : "clean-docs",
+    "kind" : "clean",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 0,
+    "tokens" : 478,
+    "latencyMs" : 1311,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ ]
+  }, {
+    "id" : "clean-small-fix",
+    "kind" : "clean",
+    "rule" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "hybrid" : {
+      "tp" : 0,
+      "fp" : 0,
+      "fn" : 0,
+      "lineHits" : 0,
+      "lineCompared" : 0
+    },
+    "ruleFindings" : 0,
+    "hybridFindings" : 0,
+    "tokens" : 721,
+    "latencyMs" : 1563,
+    "chunks" : 1,
+    "coverage" : 100,
+    "llmError" : null,
+    "neutralized" : 0,
+    "details" : [ ]
+  } ]
+}

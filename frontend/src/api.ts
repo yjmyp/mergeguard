@@ -1,4 +1,4 @@
-import type { Overview, Page, RepoDto, ReviewDetail, ReviewSummary, ScanResult } from "./types";
+import type { JobDto, JobStats, Overview, Page, Quality, RepoDto, ReviewDetail, ReviewDiff, ReviewSummary, ScanResult } from "./types";
 
 const API_BASE = (localStorage.getItem("mg_api_base") || import.meta.env.VITE_API_BASE || "").replace(/\/$/, "");
 const API_KEY = (localStorage.getItem("mg_api_key") || import.meta.env.VITE_API_KEY || "dev-mergeguard-key");
@@ -35,6 +35,13 @@ export const api = {
     return request<Page<ReviewSummary>>(`/api/reviews?${search.toString()}`);
   },
   review: (id: number) => request<ReviewDetail>(`/api/reviews/${id}`),
+  reviewDiff: (id: number) => request<ReviewDiff>(`/api/reviews/${id}/diff`),
+  feedback: (id: number, status: string, note?: string) =>
+    request<void>(`/api/findings/${id}/feedback`, { method: "POST", body: JSON.stringify({ status, note }) }),
+  quality: () => request<Quality>("/api/quality"),
+  jobs: (limit = 30) => request<JobDto[]>(`/api/jobs?limit=${limit}`),
+  jobStats: () => request<JobStats>("/api/jobs/stats"),
+  retryJob: (id: number) => request<JobDto>(`/api/jobs/${id}/retry`, { method: "POST" }),
   trigger: (payload: { owner: string; name: string; prNumber: number; publish: boolean }) =>
     request<ReviewDetail>("/api/reviews", { method: "POST", body: JSON.stringify(payload) }),
   repos: () => request<RepoDto[]>("/api/repos"),

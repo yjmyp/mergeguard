@@ -8,7 +8,7 @@ import dev.yujian.mergeguard.domain.WebhookDelivery;
 import dev.yujian.mergeguard.repo.RepoConfigRepository;
 import dev.yujian.mergeguard.repo.WebhookDeliveryRepository;
 import dev.yujian.mergeguard.service.Hmac;
-import dev.yujian.mergeguard.service.ReviewService;
+import dev.yujian.mergeguard.service.JobService;
 import java.time.Instant;
 import java.util.Map;
 import java.util.Set;
@@ -33,16 +33,16 @@ public class WebhookController {
     private final MergeGuardProperties properties;
     private final WebhookDeliveryRepository deliveryRepository;
     private final RepoConfigRepository repoConfigRepository;
-    private final ReviewService reviewService;
+    private final JobService jobService;
     private final ObjectMapper objectMapper;
 
     public WebhookController(MergeGuardProperties properties, WebhookDeliveryRepository deliveryRepository,
-                             RepoConfigRepository repoConfigRepository, ReviewService reviewService,
+                             RepoConfigRepository repoConfigRepository, JobService jobService,
                              ObjectMapper objectMapper) {
         this.properties = properties;
         this.deliveryRepository = deliveryRepository;
         this.repoConfigRepository = repoConfigRepository;
-        this.reviewService = reviewService;
+        this.jobService = jobService;
         this.objectMapper = objectMapper;
     }
 
@@ -105,7 +105,7 @@ public class WebhookController {
             int number = pr.path("number").asInt();
             String headSha = pr.path("head").path("sha").asText("");
             if (number > 0 && !headSha.isBlank()) {
-                reviewService.submit(parts[0], parts[1], number, headSha, true);
+                jobService.enqueue(parts[0], parts[1], number, headSha, true);
             }
             return ResponseEntity.accepted().body(Map.of("status", "queued", "pull_request", number));
         } catch (Exception e) {

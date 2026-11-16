@@ -1,7 +1,14 @@
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.296 s -- in dev.yujian.mergeguard.analysis.LlmReviewerTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in dev.yujian.mergeguard.analysis.RiskAggregatorTest
-Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in dev.yujian.mergeguard.analysis.RuleEngineTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s -- in dev.yujian.mergeguard.config.ApiKeyFilterTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in dev.yujian.mergeguard.diff.FileDiffTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in dev.yujian.mergeguard.service.HmacTest
-Total: 43 tests, 0 failures, 0 errors
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.259 s -- in dev.yujian.mergeguard.analysis.DiffChunkerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.441 s -- in dev.yujian.mergeguard.analysis.LlmReviewerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in dev.yujian.mergeguard.analysis.PromptGuardTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in dev.yujian.mergeguard.analysis.RiskAggregatorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in dev.yujian.mergeguard.analysis.RuleEngineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.88 s -- in dev.yujian.mergeguard.ApplicationContextTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s -- in dev.yujian.mergeguard.config.ApiKeyFilterTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.yujian.mergeguard.diff.FileDiffTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s -- in dev.yujian.mergeguard.eval.EvaluationTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in dev.yujian.mergeguard.service.HmacTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.666 s -- in dev.yujian.mergeguard.service.JobServiceTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.598 s -- in dev.yujian.mergeguard.service.ReviewServiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s -- in dev.yujian.mergeguard.service.SarifExporterTest
+Total: 63 tests, 0 failures, 0 errors, 1 skipped

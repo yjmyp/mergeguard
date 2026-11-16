@@ -58,6 +58,10 @@ public class RepoController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "repo not found"));
         if (request.enabled() != null) config.setEnabled(request.enabled());
         if (request.autoReview() != null) config.setAutoReview(request.autoReview());
+        if (request.ignoredPaths() != null) config.setIgnoredPaths(request.ignoredPaths());
+        if (request.disabledRules() != null) config.setDisabledRules(request.disabledRules());
+        if (request.minPublishSeverity() != null) config.setMinPublishSeverity(request.minPublishSeverity());
+        if (request.maxInlineComments() != null) config.setMaxInlineComments(request.maxInlineComments());
         return toDto(repoConfigRepository.save(config));
     }
 
@@ -70,6 +74,7 @@ public class RepoController {
 
     private Dtos.RepoDto toDto(RepoConfig config) {
         return new Dtos.RepoDto(config.getId(), config.getOwner(), config.getName(), config.getFullName(),
-                config.isEnabled(), config.isAutoReview(), config.getUpdatedAt());
+                config.isEnabled(), config.isAutoReview(), config.getIgnoredPaths(), config.getDisabledRules(),
+                config.getMinPublishSeverity(), config.getMaxInlineComments(), config.getUpdatedAt());
     }
 }

@@ -22,17 +22,17 @@ public class PollingService {
     private final RepoConfigRepository repoConfigRepository;
     private final ReviewRepository reviewRepository;
     private final dev.yujian.mergeguard.github.GitHubClient githubClient;
-    private final ReviewService reviewService;
+    private final JobService jobService;
     private final MergeGuardProperties properties;
     private final StringRedisTemplate redisTemplate;
 
     public PollingService(RepoConfigRepository repoConfigRepository, ReviewRepository reviewRepository,
-                          dev.yujian.mergeguard.github.GitHubClient githubClient, ReviewService reviewService,
+                          dev.yujian.mergeguard.github.GitHubClient githubClient, JobService jobService,
                           MergeGuardProperties properties, StringRedisTemplate redisTemplate) {
         this.repoConfigRepository = repoConfigRepository;
         this.reviewRepository = reviewRepository;
         this.githubClient = githubClient;
-        this.reviewService = reviewService;
+        this.jobService = jobService;
         this.properties = properties;
         this.redisTemplate = redisTemplate;
     }
@@ -74,7 +74,7 @@ public class PollingService {
                             repo.getOwner(), repo.getName(), (int) pr.number(), pr.head().sha())) {
                         continue;
                     }
-                    reviewService.submit(repo.getOwner(), repo.getName(), (int) pr.number(), pr.head().sha(), publish);
+                    jobService.enqueue(repo.getOwner(), repo.getName(), (int) pr.number(), pr.head().sha(), publish);
                     queued++;
                 }
             }

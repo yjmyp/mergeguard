@@ -28,6 +28,9 @@ export interface Finding {
   source: "RULE" | "LLM";
   confidence: number;
   ruleId: string | null;
+  status: "OPEN" | "ACCEPTED" | "DISMISSED" | "FIXED";
+  feedbackNote: string | null;
+  feedbackAt: string | null;
 }
 
 export interface ReviewDetail extends Omit<ReviewSummary, "findings"> {
@@ -40,6 +43,13 @@ export interface ReviewDetail extends Omit<ReviewSummary, "findings"> {
   outputTokens: number;
   publishError: string | null;
   findings: Finding[];
+  diffMs: number;
+  ruleMs: number;
+  llmMs: number;
+  publishMs: number;
+  llmChunks: number;
+  llmCoverage: number;
+  injectionNeutralized: number;
 }
 
 export interface VerdictCount { verdict: Verdict; count: number }
@@ -72,10 +82,72 @@ export interface RepoDto {
   fullName: string;
   enabled: boolean;
   autoReview: boolean;
+  ignoredPaths: string;
+  disabledRules: string;
+  minPublishSeverity: string;
+  maxInlineComments: number;
   updatedAt: string;
 }
 
 export interface ScanResult {
   queued: number;
   openPulls: number;
+}
+
+export interface DiffFile {
+  file: string;
+  additions: number;
+  deletions: number;
+  patch: string | null;
+}
+
+export interface ReviewDiff {
+  reviewId: number;
+  headSha: string;
+  files: DiffFile[];
+}
+
+export interface JobDto {
+  id: number;
+  owner: string;
+  name: string;
+  prNumber: number;
+  headSha: string;
+  publish: boolean;
+  status: "QUEUED" | "RUNNING" | "DONE" | "FAILED";
+  attempts: number;
+  maxAttempts: number;
+  nextAttemptAt: string;
+  lastError: string | null;
+  reviewId: number | null;
+  createdAt: string;
+  finishedAt: string | null;
+}
+
+export interface JobStats {
+  queued: number;
+  running: number;
+  done: number;
+  failed: number;
+}
+
+export interface QualityRule {
+  ruleId: string;
+  total: number;
+  accepted: number;
+  dismissed: number;
+  fixed: number;
+  open: number;
+  acceptanceRate: number;
+  avgConfidence: number;
+}
+
+export interface Quality {
+  totalFindings: number;
+  judged: number;
+  accepted: number;
+  dismissed: number;
+  fixed: number;
+  acceptanceRate: number;
+  rules: QualityRule[];
 }

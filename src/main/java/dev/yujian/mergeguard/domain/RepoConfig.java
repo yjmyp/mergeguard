@@ -31,6 +31,18 @@ public class RepoConfig {
     @Column(name = "auto_review", nullable = false)
     private boolean autoReview = true;
 
+    @Column(name = "ignored_paths", length = 2000)
+    private String ignoredPaths = "";
+
+    @Column(name = "disabled_rules", length = 1000)
+    private String disabledRules = "";
+
+    @Column(name = "min_publish_severity", length = 16)
+    private String minPublishSeverity = "MINOR";
+
+    @Column(name = "max_inline_comments")
+    private Integer maxInlineComments = 10;
+
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
@@ -61,6 +73,14 @@ public class RepoConfig {
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
     public boolean isAutoReview() { return autoReview; }
     public void setAutoReview(boolean autoReview) { this.autoReview = autoReview; }
+    public String getIgnoredPaths() { return ignoredPaths; }
+    public void setIgnoredPaths(String ignoredPaths) { this.ignoredPaths = ignoredPaths; }
+    public String getDisabledRules() { return disabledRules; }
+    public void setDisabledRules(String disabledRules) { this.disabledRules = disabledRules; }
+    public String getMinPublishSeverity() { return minPublishSeverity; }
+    public void setMinPublishSeverity(String minPublishSeverity) { this.minPublishSeverity = minPublishSeverity; }
+    public Integer getMaxInlineComments() { return maxInlineComments; }
+    public void setMaxInlineComments(Integer maxInlineComments) { this.maxInlineComments = maxInlineComments; }
     public Instant getCreatedAt() { return createdAt; }
     public Instant getUpdatedAt() { return updatedAt; }
 }

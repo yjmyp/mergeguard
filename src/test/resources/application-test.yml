@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:mergeguard;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        default_schema: public
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      repositories:
+        enabled: false
+mergeguard:
+  api-key: test-key
+  webhook-secret: test-secret
+  llm:
+    enabled: false
+  job:
+    worker-enabled: false
+  poll:
+    enabled: false

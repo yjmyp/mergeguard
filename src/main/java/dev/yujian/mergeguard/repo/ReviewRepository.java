@@ -20,6 +20,9 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     List<Review> findTop10ByOrderByCreatedAtDesc();
 
+    java.util.List<Review> findByRepoOwnerAndRepoNameAndPrNumberOrderByCreatedAtDesc(
+            String repoOwner, String repoName, int prNumber);
+
     Page<Review> findByVerdict(Verdict verdict, Pageable pageable);
 
     Page<Review> findByRepoOwnerAndRepoName(String repoOwner, String repoName, Pageable pageable);

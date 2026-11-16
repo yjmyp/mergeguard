@@ -171,6 +171,11 @@ public class RuleEngine {
                 findings.add(FindingDraft.rule(name, line.lineNumber(), MAJOR, "SECURITY", "R-SEC-05",
                         "动态执行代码", trimmed, "移除 eval/exec，改用显式解析或白名单。"));
             }
+            if (PromptGuard.isInjectionAttempt(text)) {
+                findings.add(FindingDraft.rule(name, line.lineNumber(), MAJOR, "SECURITY", "R-SEC-08",
+                        "疑似针对 AI 审查的提示注入", trimmed,
+                        "删除面向评审模型的指令性文本；PR 内容会被当作不可信数据处理。"));
+            }
             if (WEAK_CRYPTO.matcher(text).find() && !text.contains("test")) {
                 findings.add(FindingDraft.rule(name, line.lineNumber(), MINOR, "SECURITY", "R-SEC-07",
                         "使用了弱哈希算法", trimmed, "改用 SHA-256 或 bcrypt/Argon2（口令场景）。"));

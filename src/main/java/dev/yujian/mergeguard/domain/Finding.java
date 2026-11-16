@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import java.time.Instant;
 
 @Entity
 @Table(name = "mg_finding", indexes = @Index(name = "idx_mg_finding_review", columnList = "review_id"))
@@ -53,7 +54,18 @@ public class Finding {
     @Column(name = "rule_id", length = 24)
     private String ruleId;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true, length = 16)
+    private FindingStatus status = FindingStatus.OPEN;
+
+    @Column(name = "feedback_note", length = 1000)
+    private String feedbackNote;
+
+    @Column(name = "feedback_at")
+    private Instant feedbackAt;
+
     public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     public Long getReviewId() { return reviewId; }
     public void setReviewId(Long reviewId) { this.reviewId = reviewId; }
     public String getFilePath() { return filePath; }
@@ -76,4 +88,10 @@ public class Finding {
     public void setConfidence(double confidence) { this.confidence = confidence; }
     public String getRuleId() { return ruleId; }
     public void setRuleId(String ruleId) { this.ruleId = ruleId; }
+    public FindingStatus getStatus() { return status == null ? FindingStatus.OPEN : status; }
+    public void setStatus(FindingStatus status) { this.status = status; }
+    public String getFeedbackNote() { return feedbackNote; }
+    public void setFeedbackNote(String feedbackNote) { this.feedbackNote = feedbackNote; }
+    public Instant getFeedbackAt() { return feedbackAt; }
+    public void setFeedbackAt(Instant feedbackAt) { this.feedbackAt = feedbackAt; }
 }

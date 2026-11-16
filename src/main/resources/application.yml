@@ -46,6 +46,15 @@ mergeguard:
     model: ${MERGEGUARD_LLM_MODEL:deepseek-chat}
     max-diff-chars: 14000
     timeout-seconds: 60
+    chunk-chars: 6000
+    max-chunks: 8
+    per-file-chars: 3000
+    max-findings-per-chunk: 12
+    retry-attempts: 2
+    min-confidence: 0.85
+  job:
+    worker-enabled: ${MERGEGUARD_JOB_WORKER_ENABLED:true}
+    lease-seconds: 120
   poll:
     enabled: ${MERGEGUARD_POLL_ENABLED:false}
     interval-ms: 300000

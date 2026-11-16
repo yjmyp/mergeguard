@@ -66,6 +66,33 @@ public class Review {
     @Column(name = "duration_ms", nullable = false)
     private long durationMs;
 
+    @Column(name = "diff_ms")
+    private Long diffMs = 0L;
+
+    @Column(name = "rule_ms")
+    private Long ruleMs = 0L;
+
+    @Column(name = "llm_ms")
+    private Long llmMs = 0L;
+
+    @Column(name = "publish_ms")
+    private Long publishMs = 0L;
+
+    @Column(name = "llm_chunks", nullable = true)
+    private Integer llmChunks = 0;
+
+    @Column(name = "llm_coverage")
+    private int llmCoverage = 100;
+
+    @Column(name = "injection_neutralized", nullable = true)
+    private Integer injectionNeutralized = 0;
+
+    @Column(name = "summary_comment_id")
+    private Long summaryCommentId;
+
+    @Column(name = "check_run_id")
+    private Long checkRunId;
+
     @Column(name = "input_tokens", nullable = false)
     private int inputTokens;
 
@@ -85,6 +112,7 @@ public class Review {
     private Instant createdAt;
 
     public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     public String getRepoOwner() { return repoOwner; }
     public void setRepoOwner(String repoOwner) { this.repoOwner = repoOwner; }
     public String getRepoName() { return repoName; }
@@ -111,6 +139,24 @@ public class Review {
     public void setLlmModel(String llmModel) { this.llmModel = llmModel; }
     public long getDurationMs() { return durationMs; }
     public void setDurationMs(long durationMs) { this.durationMs = durationMs; }
+    public Long getDiffMs() { return diffMs; }
+    public void setDiffMs(Long diffMs) { this.diffMs = diffMs; }
+    public Long getRuleMs() { return ruleMs; }
+    public void setRuleMs(Long ruleMs) { this.ruleMs = ruleMs; }
+    public Long getLlmMs() { return llmMs; }
+    public void setLlmMs(Long llmMs) { this.llmMs = llmMs; }
+    public Long getPublishMs() { return publishMs; }
+    public void setPublishMs(Long publishMs) { this.publishMs = publishMs; }
+    public int getLlmChunks() { return llmChunks == null ? 0 : llmChunks; }
+    public void setLlmChunks(int llmChunks) { this.llmChunks = llmChunks; }
+    public int getLlmCoverage() { return llmCoverage; }
+    public void setLlmCoverage(int llmCoverage) { this.llmCoverage = llmCoverage; }
+    public int getInjectionNeutralized() { return injectionNeutralized == null ? 0 : injectionNeutralized; }
+    public void setInjectionNeutralized(int injectionNeutralized) { this.injectionNeutralized = injectionNeutralized; }
+    public Long getSummaryCommentId() { return summaryCommentId; }
+    public void setSummaryCommentId(Long summaryCommentId) { this.summaryCommentId = summaryCommentId; }
+    public Long getCheckRunId() { return checkRunId; }
+    public void setCheckRunId(Long checkRunId) { this.checkRunId = checkRunId; }
     public int getInputTokens() { return inputTokens; }
     public void setInputTokens(int inputTokens) { this.inputTokens = inputTokens; }
     public int getOutputTokens() { return outputTokens; }
